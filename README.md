@@ -7,27 +7,28 @@ Nurhidayah
 
 ### 1. Abstraction (Getter dan Setter)
 
-Enkapsulasi dipakai untuk menjaga agar data produk tidak bisa diakses sembarangan dari luar class. Misalnya, atribut id, nama, kategori, harga di dalam class Produk dibuat private. Supaya tetap bisa diakses maka dibuatlah getter dan setter agar nanti ada aturan tambahan, contohnya harga tidak boleh negatif dan cukup ditaruh di setHarga() dan tidak perlu menghambur logika di tempat lain, jadi data lebih aman dan rapi.
+#### Abstract pada Class Produk
 
-<img width="1111" height="282" alt="image" src="https://github.com/user-attachments/assets/1051e700-2606-4f85-a945-92bd9fe931fc" />
+lass abstract Produk sebagai cetakan umum semua produk. Di dalamnya disimpan data dasar seperti id, nama, kategori, dan harga, serta method abstract infoProduk() yang belum memiliki isi. Setiap subclass seperti Pakaian atau Selimut wajib mengisi cara menampilkan informasi produknya masing-masing. 
 
-### 2. Polymorphism (Warisan)
+<img width="1071" height="403" alt="image" src="https://github.com/user-attachments/assets/c64e3891-3359-4c5b-9121-4051e0cb5304" />
 
-Program ini juga menggunakan inheritance supaya jenis produk bisa berbeda tapi tetap punya struktur dasar yang sama. Class Produk dijadikan superclass, sedangkan Pakaian, Selimut, dan CelanaJeans dijadikan subclass. Semua subclass otomatis mewarisi atribut id, nama, kategori, harga dari Produk. Tapi yang membedakan subclass itu karena ada tambahan atribut masing-masing, misalnya Pakaian punya atribut ukuran, Selimut punya atribut bahan, dan CelanaJeans punya atribut warna.
+<img width="487" height="720" alt="image" src="https://github.com/user-attachments/assets/d3a00667-e310-4e0f-b79e-a92e61ee35fd" />
 
-<img width="1264" height="745" alt="image" src="https://github.com/user-attachments/assets/d7fc4e04-71cc-4edd-9196-22426a4fe61f" />
+<img width="365" height="66" alt="image" src="https://github.com/user-attachments/assets/81b77915-13bd-4d8e-a7e9-9157f22f50ef" />
 
-<img width="1292" height="748" alt="image" src="https://github.com/user-attachments/assets/123c57dd-7109-4017-a333-d70f482cb64d" />
+#### Interface Diskon
 
-<img width="710" height="176" alt="image" src="https://github.com/user-attachments/assets/9de7cb0e-41ba-4949-b370-7f106ccad160" />
+Interface Diskon yang bertindak seperti kontrak, sehingga setiap produk yang mengimplementasikannya harus menyediakan perhitungan diskon sendiri. Dengan abstraction ini, data produk lebih teratur dan mudah dikembangkan tanpa harus mengubah struktur utama.
 
-### 3. Overridinng (Override)
-Overriding adalah kemampuan subclass untuk menimpa (override) method yang sudah ada di superclass dengan implementasi yang berbeda. Ciri-cirinya adalah mempunyai nama method sama dan parameter sama.
+<img width="368" height="115" alt="image" src="https://github.com/user-attachments/assets/952d1d93-0b71-4d0e-846a-2c5aed038917" />
 
-<img width="710" height="176" alt="image" src="https://github.com/user-attachments/assets/09ee87a1-f542-46ea-822f-27da3b1cae57" />
+### 2. Polymorphism
 
-<img width="751" height="206" alt="image" src="https://github.com/user-attachments/assets/4d884c90-af1b-4f61-bf71-6f6ef1c4fc55" />
+Pada method hitungDiskon, yang memiliki beberapa versi: satu hanya memakai parameter persentase, dan satu lagi memakai persentase sekaligus batas maksimum potongan. Kedua method memiliki nama sama tapi parameter berbeda, sehingga cara pemanggilannya bisa menyesuaikan kebutuhan.
 
-<img width="738" height="225" alt="image" src="https://github.com/user-attachments/assets/74a68844-7c8d-4090-ac90-c4cdcdc9e50e" />
+<img width="819" height="461" alt="image" src="https://github.com/user-attachments/assets/d3428aef-aca8-4193-80be-9afc02b0c6c5" />
 
-## Penjelasan Alur Program
+Overriding erjadi saat subclass menimpa method abstract infoProduk() dari Produk. Meskipun nama method sama, tiap produk menampilkan format informasi yang berbeda sesuai jenisnya. Dengan polymorphism ini, program dapat memanggil method yang sama tetapi menghasilkan perilaku yang sesuai dengan objek yang sedang digunakan.
+
+<img width="831" height="155" alt="image" src="https://github.com/user-attachments/assets/53fdea68-bbab-4d79-8053-123a5d758485" />
